@@ -20,14 +20,15 @@ export default {
   },
 
   computed: {
-    fromRatingToStars(){
-
-    }
+    
   },
 
   methods: {
     createImgPath(posterPath){
       return `${this.imgPathAbsolute}${posterPath}`
+    },
+    fromRatingToStars(rating){
+      return Math.ceil(rating *.5)
     }
   }
 }
@@ -45,7 +46,7 @@ export default {
             <div class="em-card info position-absolute p-2">
               <h3 v-if="title">Titolo: {{title}} </h3>
               <h3 class="my-4">Titolo Originale: {{originalTitle}}</h3>
-              <h3 class="my-4">Voto: {{rating}}</h3>
+              <h3 class="my-4">Stelle {{fromRatingToStars(rating)}}</h3>
               <div class="overview-container">
                 <p class="fs-5">Overview: {{overview}}</p>
               </div>
