@@ -26,6 +26,7 @@ export default {
       :language="movie.original_language"
       :original-title="movie.original_title"
       :rating="movie.vote_average"
+      :overview="movie.overview"
       />
     </div>
 

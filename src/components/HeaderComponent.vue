@@ -18,7 +18,9 @@ export default {
   },
 
   methods: {
+
     ricercaApi(){
+
       axios.get(store.apiUrlMovie, {
         params:{
           api_key: this.apiKey,

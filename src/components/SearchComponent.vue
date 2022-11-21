@@ -21,7 +21,7 @@ export default {
     v-model="store.categorySearched">
       <option value="">Scegli una categoria</option>
       <option value="movie">Film</option>
-      <option value="series">Serie Tv</option>
+      <option value="tv">Serie Tv</option>
     </select>
 
     <button class="btn btn-info" 
