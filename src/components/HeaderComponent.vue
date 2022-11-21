@@ -32,7 +32,17 @@ export default {
         store.apiResponseMovie = response.data.results
       })
       .catch (error => console.log(error.code))
+
+     axios.get(store.apiUrlTv, {
+      params: {
+        api_key: this.apiKey,
+        query: store.newSearchTitle
+      }
+     })
+     .then( response => store.apiResponseTv = response.data.results)
+     .catch (error => console.log(error.code))
     }
+
   }
 }
 </script>

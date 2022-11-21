@@ -14,7 +14,8 @@ export default {
     originalTitle: String, 
     language: String,
     rating: Number,
-    overview: String
+    overview: String,
+    backdropPath: String
   },
 
   computed: {
@@ -31,12 +32,13 @@ export default {
 
 <template>
   
-      <div class="col mb-3">
+      <div class="col mb-3" v-if="imgPath">
 
         <div class="em-card position-relative">
 
           <div class="img-container">
-            <img :src="createImgPath(imgPath)" alt="">
+            <img v-if="imgPath" :src="createImgPath(imgPath)" alt="">
+            <img v-else :src="createImgPath(backdropPath)" alt="">
             <div class="em-card info position-absolute p-2">
               <h3 v-if="title">Titolo: {{title}} </h3>
               <h3 class="my-4">Titolo Originale: {{originalTitle}}</h3>

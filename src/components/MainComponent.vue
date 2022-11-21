@@ -27,6 +27,7 @@ export default {
       :original-title="movie.original_title"
       :rating="movie.vote_average"
       :overview="movie.overview"
+      :backdrop-path="movie.backdrop_path"
       />
     </div>
 
