@@ -19,7 +19,7 @@ export default {
 
   methods: {
     ricercaApi(){
-      axios.get(store.apiUrl, {
+      axios.get(store.apiUrlMovie, {
         params:{
           api_key: this.apiKey,
           query: store.newSearchTitle
@@ -27,7 +27,7 @@ export default {
       }
       )
       .then( response => {
-        store.apiResponse = response.data.results
+        store.apiResponseMovie = response.data.results
       })
       .catch (error => console.log(error.code))
     }
@@ -52,7 +52,7 @@ export default {
 
 header {
   height: $header-height;
-  background-color: gray;
+  background-color: black;
 }
 
 </style>

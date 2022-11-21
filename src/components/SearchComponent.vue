@@ -13,13 +13,20 @@ export default {
 <template>
   
   <div class="em-container d-flex ms-auto align-items-center">
-    <input type="text" class="form-control" v-model="store.newSearchTitle">
-    <select name="genre" id="genre" class="form-select mx-4" v-model="store.categorySearched">
+    <input type="text" class="form-control" 
+    v-model="store.newSearchTitle" 
+    @keydown.enter="$emit('ricercaApi')">
+
+    <select name="genre" id="genre" class="form-select mx-4" 
+    v-model="store.categorySearched">
       <option value="">Scegli una categoria</option>
       <option value="movie">Film</option>
       <option value="series">Serie Tv</option>
     </select>
-    <button class="btn btn-info" @click="$emit('ricercaApi')">Search</button>
+
+    <button class="btn btn-info" 
+    @click="$emit('ricercaApi')">Search</button>
+
   </div>
 
 </template>
@@ -29,7 +36,7 @@ export default {
 @use '../styles/partials/variables' as *;
 
 input {
-  width: 250px;
+  min-width: 250px;
 }
 
 </style>
