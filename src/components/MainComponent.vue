@@ -1,5 +1,7 @@
 <script>
+// Importo il componente che contiene la card
 import CardComponentVue from './CardComponent.vue';
+// Importo lo store reattivo per la condivisone di dati
 import {store} from '../data/store'
 export default {
   name: 'MainComponent',
@@ -10,6 +12,10 @@ export default {
     return {
       store
     }
+  },
+
+  computed: {
+    
   }
 }
 </script>
@@ -18,7 +24,7 @@ export default {
   
   <div class="em-container">
 
-    <div class="container py-5">
+    <div class="container pt-5">
       <h2 class="text-white mb-5">FILMS</h2>
       <div class="row row-cols-4">
         <CardComponentVue 
@@ -31,7 +37,9 @@ export default {
         :backdrop-path="movie.backdrop_path"
       />
       </div>
+    </div>
 
+    <div class="container">
       <h2 class="text-white my-5">TV SERIES</h2>
       <div class="row row-cols-4">
         <CardComponentVue 
@@ -45,8 +53,10 @@ export default {
         />
       </div>
       
+    </div>
+      
 
-  </div>
+
    
   </div>
  

@@ -34,12 +34,12 @@ export default {
 </script>
 
 <template>
-  
+      <!-- Mostro la col solo se c'è almeno una delle due immagini -->
       <div class="col mb-3" v-if="imgPath || backdropPath">
 
         <div class="em-card position-relative">
-
           <div class="img-container">
+
             <img v-if="imgPath" :src="createImgPath(imgPath)" alt="">
             <img v-else :src="createImgPath(backdropPath)" alt="">
             <div class="em-card info position-absolute p-2">
@@ -50,9 +50,9 @@ export default {
                 <p class="fs-5">Overview: {{overview}}</p>
               </div>
             </div>
+
           </div>
         </div>
-
 
       </div>
 
@@ -74,7 +74,6 @@ export default {
   width: 100%;
   height: 100%;
   transition: all .2s ease;
-  // border: 1px solid rgb(221, 221, 221);
 }
 
 .img-container:hover .em-card.info  {
@@ -91,9 +90,6 @@ export default {
   }
 }
 
-img {
-  transition: all .4s ease;
-}
 .img-container:hover img {
   transform: scale(0.93);
 }
