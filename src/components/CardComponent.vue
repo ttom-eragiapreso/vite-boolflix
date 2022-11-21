@@ -15,11 +15,14 @@ export default {
     language: String,
     rating: Number,
     overview: String,
-    backdropPath: String
+    backdropPath: String,
+    name: String
   },
 
   computed: {
-    
+    fromRatingToStars(){
+
+    }
   },
 
   methods: {
@@ -32,7 +35,7 @@ export default {
 
 <template>
   
-      <div class="col mb-3" v-if="imgPath">
+      <div class="col mb-3" v-if="imgPath || backdropPath">
 
         <div class="em-card position-relative">
 
@@ -44,7 +47,7 @@ export default {
               <h3 class="my-4">Titolo Originale: {{originalTitle}}</h3>
               <h3 class="my-4">Voto: {{rating}}</h3>
               <div class="overview-container">
-                <p>Overview: {{overview}}</p>
+                <p class="fs-5">Overview: {{overview}}</p>
               </div>
             </div>
           </div>
