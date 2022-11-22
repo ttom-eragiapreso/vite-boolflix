@@ -5,7 +5,8 @@ export default {
   data(){
     return {
       store,
-      imgPathAbsolute: 'https://image.tmdb.org/t/p/w342/'
+      imgPathAbsolute: 'https://image.tmdb.org/t/p/w342/',
+      isFlag: true
     }
   },
   props: {
@@ -17,10 +18,6 @@ export default {
     overview: String,
     backdropPath: String,
     name: String
-  },
-
-  computed: {
- 
   },
 
   methods: {
@@ -40,7 +37,10 @@ export default {
         case 'fr': return 'fi-fr'
         case 'ru': return 'fi-ru'
         case 'es': return 'fi-es'
-        default: return lang
+        default: {
+          this.isFlag = false
+          return lang
+          } 
       }
     }
   }
@@ -59,7 +59,9 @@ export default {
             <div class="em-card info position-absolute p-3">
               <h3 v-if="title">Titolo: {{title}} </h3>
               <h3 class="my-3">Titolo Originale: {{originalTitle}}</h3>
-              <span class="fi" :class="languageToCode(language)"></span>
+              <span class="fs-3 pe-3">Lingua:</span>
+              <span v-if="this.isFlag" class="fi" :class="languageToCode(language)"></span>
+              <span v-else class="fs-3">{{language}}</span>
               <h3 class="my-3"><span class="pe-4">Voto</span> 
               <font-awesome-icon icon="fa-solid fa-star" v-for="n in fromRatingToStars(rating)" :key="n" />
               <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - fromRatingToStars(rating))" :key="n"/>
@@ -120,6 +122,7 @@ export default {
 
 .em-card {
   box-shadow: 0 0 8px 0px rgb(111 111 111);
+  min-height: 450px;
 }
 
 .overview-container{

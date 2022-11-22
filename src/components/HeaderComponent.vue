@@ -15,15 +15,21 @@ export default {
       apiKey: '3539645b3c4df152d5d06f3af64f348b',
     }
   },
-  computed: {
-   
-  },
 
   methods: {
 
-    ricercaApi(){
+    ricercaApi(type){
 
-      axios.get(store.apiUrlMovie, {
+      store.movie = []
+      store.tv = []
+
+      if(type === ""){
+        this.ricercaApi('movie')
+        this.ricercaApi('tv')
+        return
+      } 
+
+      axios.get(store.apiUrl + type, {
         params:{
           api_key: this.apiKey,
           query: store.newSearchTitle,
@@ -32,20 +38,15 @@ export default {
       }
       )
       .then( response => {
-        store.apiResponseMovie = response.data.results
+        store[type] = response.data.results
       })
       .catch (error => console.log(error.code))
 
-     axios.get(store.apiUrlTv, {
-      params: {
-        api_key: this.apiKey,
-        query: store.newSearchTitle,
-        language: 'it'
-      }
-     })
-     .then( response => store.apiResponseTv = response.data.results)
-     .catch (error => console.log(error.code))
     }
+
+  },
+
+  mounted(){
 
   }
 }
@@ -56,7 +57,7 @@ export default {
     <div class="container d-flex align-items-center">
 
       <h1 class="text-danger">BOOLFIX</h1>
-      <SearchComponentVue @ricercaApi="ricercaApi()"/>
+      <SearchComponentVue @ricercaApi="ricercaApi(store.categorySearched)"/>
     </div>
   </header>
 </template>

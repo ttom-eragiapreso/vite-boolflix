@@ -18,7 +18,9 @@ export default {
     @keydown.enter="$emit('ricercaApi')">
 
     <select name="genre" id="genre" class="form-select mx-4" 
-    v-model="store.categorySearched">
+    v-model="store.categorySearched"
+    @change="$emit('ricercaApi')"
+    >
       <option value="">Scegli una categoria</option>
       <option value="movie">Film</option>
       <option value="tv">Serie Tv</option>

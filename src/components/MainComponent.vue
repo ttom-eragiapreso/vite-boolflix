@@ -12,10 +12,6 @@ export default {
     return {
       store
     }
-  },
-
-  computed: {
-    
   }
 }
 </script>
@@ -24,13 +20,13 @@ export default {
   
   <div class="em-container">
 
-    <div class="container" v-if="store.apiResponseMovie.length > 0 || store.apiResponseTv.length > 0">
+    <div class="container" v-if="store.movie.length > 0 || store.tv.length > 0">
 
         <div class="container pt-5">
-        <h2 class="text-white mb-5">FILMS</h2>
+        <h2 class="text-white mb-5" v-if="store.movie.length > 0">FILMS</h2>
         <div class="row row-cols-4">
           <CardComponentVue 
-          v-for="(movie, index) in store.apiResponseMovie" :key="index"
+          v-for="(movie, index) in store.movie" :key="index"
           :img-path="movie.poster_path"
           :language="movie.original_language"
           :original-title="movie.original_title"
@@ -42,10 +38,10 @@ export default {
       </div>
 
       <div class="container">
-        <h2 class="text-white my-5">TV SERIES</h2>
+        <h2 class="text-white my-5" v-if="store.tv.length > 0">TV SERIES</h2>
         <div class="row row-cols-4">
           <CardComponentVue 
-          v-for="(tv, index) in store.apiResponseTv" :key="index"
+          v-for="(tv, index) in store.tv" :key="index"
           :img-path="tv.poster_path"
           :language="tv.original_language"
           :name="tv.name"
