@@ -122,11 +122,10 @@ export default {
 
 .em-card {
   box-shadow: 0 0 8px 0px rgb(111 111 111);
-  min-height: 450px;
 }
 
 .overview-container{
-  height: calc(100% - 200px);
+  height: calc(100% - 210px);
   overflow: auto;
 }
 

@@ -20,6 +20,9 @@ export default {
 
     ricercaApi(type){
 
+      if(store.newSearchTitle === "") type = 'trending'
+
+
       store.movie = []
       store.tv = []
 
@@ -47,7 +50,7 @@ export default {
   },
 
   mounted(){
-
+    this.ricercaApi()
   }
 }
 </script>

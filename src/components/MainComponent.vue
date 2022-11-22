@@ -54,8 +54,20 @@ export default {
       </div>
 
     </div>
-    <div class="container py-5 text-center" v-else>
-      <h2 class="text-white fs-1">Cerca un film o una serie Tv!</h2>
+
+    <div class="container py-5" v-else>
+      <h2 class="text-white my-5">TRENDING NOW</h2>
+      <div class="row row-cols-4">
+          <CardComponentVue 
+          v-for="(trending, index) in store.trending" :key="index"
+          :img-path="trending.poster_path"
+          :language="trending.original_language"
+          :name="trending.name"
+          :rating="trending.vote_average"
+          :overview="trending.overview"
+          :backdrop-path="trending.backdrop_path"
+          />
+        </div>
     </div>
 
 
