@@ -26,7 +26,8 @@ export default {
       axios.get(store.apiUrlMovie, {
         params:{
           api_key: this.apiKey,
-          query: store.newSearchTitle
+          query: store.newSearchTitle,
+          language: 'it'
         }
       }
       )
@@ -38,7 +39,8 @@ export default {
      axios.get(store.apiUrlTv, {
       params: {
         api_key: this.apiKey,
-        query: store.newSearchTitle
+        query: store.newSearchTitle,
+        language: 'it'
       }
      })
      .then( response => store.apiResponseTv = response.data.results)
