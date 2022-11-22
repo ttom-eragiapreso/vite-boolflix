@@ -2,11 +2,13 @@
 import SearchComponentVue from './SearchComponent.vue';
 import axios from 'axios';
 import {store} from '../data/store'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 export default {
   name: 'HeaderComponent',
   components: {
-    SearchComponentVue
-  },
+    SearchComponentVue,
+    FontAwesomeIcon
+},
   data(){
     return {
       store,
@@ -53,7 +55,6 @@ export default {
 
       <h1 class="text-danger">BOOLFIX</h1>
       <SearchComponentVue @ricercaApi="ricercaApi()"/>
-
     </div>
   </header>
 </template>

@@ -46,7 +46,9 @@ export default {
             <div class="em-card info position-absolute p-2">
               <h3 v-if="title">Titolo: {{title}} </h3>
               <h3 class="my-4">Titolo Originale: {{originalTitle}}</h3>
-              <h3 class="my-4">Stelle {{fromRatingToStars(rating)}}</h3>
+              <h3 class="my-4">Stelle {{fromRatingToStars(rating)}}
+              <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - fromRatingToStars(rating))" :key="n"/>
+              </h3>
               <div class="overview-container">
                 <p class="fs-5">Overview: {{overview}}</p>
               </div>
