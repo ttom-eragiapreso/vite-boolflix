@@ -20,6 +20,7 @@ export default {
   
   <div class="em-container">
 
+    <!-- Tutto questo container che contiene i risultati dei movies e tv viene mostrato solo se almeno uno dei due array è maggiore di zero -->
     <div class="container" v-if="store.movie.length > 0 || store.tv.length > 0">
 
         <div class="container pt-5">
@@ -55,6 +56,7 @@ export default {
 
     </div>
 
+    <!-- Altrimenti viene mostrato quest'altro blocco che contiene la stessa logica solo ciclando l'array trending -->
     <div class="container py-5" v-else>
       <h2 class="text-white my-5">TRENDING NOW</h2>
       <div class="row row-cols-4">

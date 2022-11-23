@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  
+  <!-- Qui al tasto enter, al change della select, o al click del bottone faccio partire lo stesso emit che nel component header lancia la ricerca -->
   <div class="em-container d-flex ms-auto align-items-center">
     <input type="text" class="form-control" 
     v-model="store.newSearchTitle" 
